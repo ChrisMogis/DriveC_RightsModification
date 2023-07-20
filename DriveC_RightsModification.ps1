@@ -44,7 +44,7 @@ If ($Param -eq "Remove")
   #Righs modification
   $Logs = "C:\CCMTune\Logs\CCMTRemoveRightOnC.log"
   Remove-Item -Path "C:\CCMTune\Logs\CCMTAddRightOnC.log" -Force
-  Write-Output "$($Date) : Remove user's right on C:" | Tee-Object -FilePath $Logs -Append
+  Write-Output "$($Date) : Remove user rights on C:" | Tee-Object -FilePath $Logs -Append
   Invoke-Expression -Command "icacls C:\ /remove:g *S-1-5-11" | Tee-Object -FilePath $Logs -Append
   }
 
@@ -54,6 +54,6 @@ If ($Param -eq "Add")
   #Righs modification
   $Logs = "C:\CCMTune\Logs\CCMTAddRightOnC.log"
   Remove-Item -Path "C:\CCMTune\Logs\CCMTRemoveRightOnC.log" -Force
-  Write-Output "$($Date) : Add user's right on C:" | Tee-Object -FilePath $Logs -Append
+  Write-Output "$($Date) : Add user rights on C:" | Tee-Object -FilePath $Logs -Append
   Invoke-Expression -Command "icacls C:\ /grant *S-1-5-11:'(OI)(CI)(IO)M'" | Tee-Object -FilePath $Logs -Append
   }
